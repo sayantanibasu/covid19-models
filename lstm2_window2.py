@@ -22,26 +22,25 @@ lookahead=2
 train_dates=['J20','J21','J23','J24','J25','J26','J27','J28','J29','J30','J31','F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12','F13','F14','F15','F16','F17','F18','F19','F20','F21','F22','F23','F24','F25','F26','F27','F28','F29','M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11']
 test_dates=['M11','M12','M13','M14','M15','M16','M17','M18','M19','M20','M21','M22']
 
-testX_total=data[data['Country']==country][test_dates[:-(lookback-1+lookahead)]].values[0]
+testX_total=data[data['Country']==country][test_dates[:-(lookback-1)]].values[0]
+
 testX=[]
-for i in testX_total:
+for i in range(len(testX_total)-(lookback-1)):
     temp=[]
     for j in range(lookback):
-        temp.append(i)
+        temp.append(testX_total[i+j])
     testX.append(temp)
 
 
 testY=data[data['Country']==country][test_dates[(lookback-1+lookahead):]].values[0]
 
-trainX_total=data[data['Country']==country][train_dates[:-(lookback-1+lookahead)]].values[0]
+trainX_total=data[data['Country']==country][train_dates[:-(lookback-1)]].values[0]
 trainX=[]
-for i in trainX_total:
+for i in range(len(trainX_total)-(lookback-1)):
     temp=[]
     for j in range(lookback):
-        temp.append(i)
+        temp.append(trainX_total[i+j])
     trainX.append(temp)
-
-print(train_dates[lookback-1+lookahead:])
 
 trainY=data[data['Country']==country][train_dates[(lookback-1+lookahead):]].values[0]
 
