@@ -103,7 +103,8 @@ plt.ylabel("Number of COVID-19 Infections")
 plt.ylim(0,1.2*max(trainY)) 
 
 
-plt.xticks(np.arange(len(train_dates)), ['J22','','','J25','','','J28','','','J31','','','F3','','','F6','','','F9','','','F12','','','F15','','','F18','','','F21','','','F24','','','F27','','','M1','','','M4','','','M7','','','M10','','','M13','','','M16'])
+plt.xticks(np.arange(len(train_dates[:-(lookahead)])), train_dates[:-(lookahead)])
+#['J22','','','J25','','','J28','','','J31','','','F3','','','F6','','','F9','','','F12','','','F15','','','F18','','','F21','','','F24','','','F27','','','M1','','','M4','','','M7','','','M10','','','M13','','','M16']
 plt.gca().legend(('actual','learnt'))
 plt.savefig(country+"_train_"+"b_"+str(lookback)+"_a_"+str(lookahead)+".png")
 
@@ -119,7 +120,6 @@ plt.xlabel("Date")
 plt.ylabel("Number of COVID-19 Infections") # discrete rep for training and test
 plt.ylim(0,1.2*max(testY)) 
 
-
-plt.xticks(np.arange(len(test_dates)+1), ['M16','M17','M18','M19','M20','M21','M22','M23','M24','M25','M26','M27','M28','M29','M30'])
+plt.xticks(np.arange(len(test_dates[(lookback):])), test_dates[(lookback):])
 plt.gca().legend(('actual','predicted'))
 plt.savefig(country+"_test_"+"b_"+str(lookback)+"_a_"+str(lookahead)+".png")
