@@ -11,7 +11,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_squared_error
 from math import sqrt
-
+import statistics
 
 data = pandas.read_excel('Country_Cases.xlsx')
 
@@ -19,12 +19,12 @@ data = pandas.read_excel('Country_Cases.xlsx')
 
 scaler = MinMaxScaler(feature_range=(0, 1))
 
-country_all = ['US, Washington ', 'US, New York']
+country_all = ['US']
 
-#'US', 'India', 'Italy', 'Spain', 'Germany', 'Iran', 'Korea, South', 'Japan', 'China, Hubei', 'UK, UK', 
+#'US', 'India', 'Italy', 'Spain', 'Germany', 'Iran', 'Korea, South', 'Japan', 'China, Hubei', 'UK, UK', 'US, Washington ', 'US, New York'
 
-lookback_all=[1,2,3,4,5]
-lookahead_all=[1,2,3,4,5]
+lookback_all=[5]   #1,2,3,4
+lookahead_all=[5]  #1,2,3,4
 num_layers_all=[5]
 
 #f.write("country"+"\t"+"lookback"+"\t"+"lookahead"+"\t"+"num_layers"+"\t"+"train_rmse"+"\t"+"test_rmse"+"\n")
@@ -51,10 +51,15 @@ for country in country_all:
                 testX_total=data[data['Country']==country][test_dates[:-(lookahead)]].values[0]
 
                 testX=[]
+
+                testBaseline=[] #moving average baseline
+                
                 for i in range(len(testY)):
                     temp=[]
                     for j in range(lookback):
                         temp.append(testX_total[i+j])
+                    avg=statistics.mean(temp)
+                    testBaseline.append(avg)
                     testX.append(temp)
 
                 trainY=data[data['Country']==country][train_dates[(lookback+lookahead):]].values[0]
@@ -144,6 +149,7 @@ for country in country_all:
                 plt.title(country+" - Predictions for Test Data")
                 plt.scatter(test_dates[(lookback+lookahead):],testY)
                 plt.scatter(test_dates[(lookback+lookahead):],testPredict)
+                plt.scatter(test_dates[(lookback+lookahead):],testBaseline)
 
                 test_rmse=sqrt(mean_squared_error(testY, testPredict))
 
