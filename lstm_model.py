@@ -28,32 +28,33 @@ w=0
 
 valid_rmse_min=99999999999999999999
 
-train_dates1=['J22','J23','J24','J25','J26','J27','J28','J29','J30','J31','F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12','F13','F14','F15','F16','F17','F18','F19','F20','F21','F22','F23','F24','F25']
+
+train_dates1=['J22','J23','J24','J25','J26','J27','J28','J29','J30','J31','F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12','F13','F14','F15','F16','F17','F18','F19','F20','F21','F22','F23','F24','F25','F26','F27','F28','F29']
 
 
-valid_dates1=['F25','F26','F27','F28','F29','M1','M2','M3','M4','M5','M6','M7']
+valid_dates1=['F29','M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12']
 
 
-train_dates2=['J22','J23','J24','J25','J26','J27','J28','J29','J30','J31','F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12','F13','F14','F15','F16','F17','F18','F19','F20','F21','F22','F23','F24','F25','F26','F27','F28','F29','M1','M2','M3','M4','M5','M6','M7']
+train_dates2=['J22','J23','J24','J25','J26','J27','J28','J29','J30','J31','F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12','F13','F14','F15','F16','F17','F18','F19','F20','F21','F22','F23','F24','F25','F26','F27','F28','F29','M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12']
 
 
-valid_dates2=['M7','M8','M9','M10','M11','M12','M13','M14','M15','M16','M17','M18','M19','M20','M21','M22']
+valid_dates2=['M12','M13','M14','M15','M16','M17','M18','M19','M20','M21','M22','M23','M24','M25','M26','M27','M28']
 
 
-train_dates3=['J22','J23','J24','J25','J26','J27','J28','J29','J30','J31','F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12','F13','F14','F15','F16','F17','F18','F19','F20','F21','F22','F23','F24','F25','F26','F27','F28','F29','M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12','M13','M14','M15','M16','M17','M18','M19','M20','M21','M22']
+train_dates3=['J22','J23','J24','J25','J26','J27','J28','J29','J30','J31','F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12','F13','F14','F15','F16','F17','F18','F19','F20','F21','F22','F23','F24','F25','F26','F27','F28','F29','M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12','M13','M14','M15','M16','M17','M18','M19','M20','M21','M22','M23','M24','M25','M26','M27','M28']
 
 
-valid_dates3=['M22','M23','M24','M25','M26','M27','M28','M29','M30','M31','A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11']
+valid_dates3=['M28','M29','M30','M31','A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12','A13','A14','A15','A16','A17','A18','A19']
 
 
-train_dates=['J22','J23','J24','J25','J26','J27','J28','J29','J30','J31','F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12','F13','F14','F15','F16','F17','F18','F19','F20','F21','F22','F23','F24','F25','F26','F27','F28','F29','M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12','M13','M14','M15','M16','M17','M18','M19','M20','M21','M22','M23','M24','M25','M26','M27','M28','M29','M30','M31','A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11']
+train_dates=['J22','J23','J24','J25','J26','J27','J28','J29','J30','J31','F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12','F13','F14','F15','F16','F17','F18','F19','F20','F21','F22','F23','F24','F25','F26','F27','F28','F29','M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12','M13','M14','M15','M16','M17','M18','M19','M20','M21','M22','M23','M24','M25','M26','M27','M28','M29','M30','M31','A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12','A13','A14','A15','A16','A17','A18','A19']
 
 
-test_dates=['A11','A12','A13','A14','A15','A16','A17','A18','A19','A20','A21','A22','A23','A24','A25','A26','A27','A28','A29','A30','MA1']
+test_dates=['A19','A20','A21','A22','A23','A24','A25','A26','A27','A28','A29','A30','MA1','MA2','MA3','MA4','MA5','MA6','MA7','MA8','MA9','MA10','MA11']
+
 
 
 for country in country_all:
-
 
 
     for lookback,lookahead in lookback_lookahead:
@@ -313,7 +314,7 @@ for country in country_all:
     print("optimal lookahead: ",lookahead_opti)
 
     ####################################################################################################
-    
+
 
     lookback=lookback_opti
     lookahead=lookahead_opti
@@ -427,11 +428,11 @@ for country in country_all:
     
 
     train_rmse=sqrt(mean_squared_error(trainY, trainPredict))
-
+    
     
     
     plt.xlabel("Date")
-    plt.ylabel("Number of COVID-19 Deaths")
+    plt.ylabel("Number of COVID-19 Cases")
     plt.ylim(0,1.2*max(trainY)) 
 
     ticks_x=[]
@@ -444,7 +445,7 @@ for country in country_all:
         j=j+1
 
 
-    plt.xticks(np.arange(len(train_dates[(lookback+lookahead):])), ticks_x)
+    plt.xticks(np.arange(len(train_dates[(lookback+lookahead):])), ticks_x, rotation=90)
     plt.gca().legend(('actual','learnt'))
     plt.figtext(1, 1, 'lookback : '+str(lookback)+', lookahead : '+str(lookahead)+', num_layers : '+str(num_layers)+', Train RMSE : '+str('%.4f'%train_rmse), horizontalalignment='right')
     plt.savefig(country+"_train_"+"b_"+str(lookback)+"_a_"+str(lookahead)+"_n_"+str(num_layers)+".png", bbox_inches='tight')
@@ -465,6 +466,7 @@ for country in country_all:
     testPredict=testPredict.reshape(1,-1)[0]
 
     print(testPredict.tolist())
+
     
 
     var_baseline=np.var(testBaseline)
@@ -476,13 +478,14 @@ for country in country_all:
     
 
     plt.xlabel("Date")
-    plt.ylabel("Number of COVID-19 Deaths") 
+    plt.ylabel("Number of COVID-19 Cases") 
     plt.ylim(0,1.2*max(max(testY),max(testPredict))) 
 
-    plt.xticks(np.arange(len(test_dates[(lookback+lookahead):])), test_dates[(lookback+lookahead):])
+    plt.xticks(np.arange(len(test_dates[(lookback+lookahead):])), test_dates[(lookback+lookahead):], rotation=90)
     plt.gca().legend(('actual','predicted','baseline'))
     plt.figtext(1, 1, 'lookback : '+str(lookback)+', lookahead : '+str(lookahead)+', num_layers : '+str(num_layers)+', Test RMSE : '+str('%.4f'%test_rmse), horizontalalignment='right')
     plt.savefig(country+"_test_"+"b_"+str(lookback)+"_a_"+str(lookahead)+"_n_"+str(num_layers)+".png", bbox_inches='tight')
+
     
 
     print(lookback, lookahead, train_rmse, test_rmse, var_baseline, var_predict)
